@@ -4,13 +4,13 @@
 # Created on: May 2021
 # This program outputs the mailing address in proper format
 
-def strt_address(street_number, street_name, appartment_number=None):
+def strt_address(street_number, street_name, apartment_number=None):
     # this function returns the street address
 
     # process
     address = street_number + " " + street_name
-    if appartment_number is not None:
-        address = appartment_number + "-" + address
+    if apartment_number is not None:
+        address = apartment_number + "-" + address
 
     return address
 
@@ -20,9 +20,9 @@ def main():
 
     # input
     name = input("Enter your full name: ")
-    question = input("Do you live in an appartment (Y/N)?: ")
+    question = input("Do you live in an apartment (Y/N)?: ")
     if question.upper() == "Y" or question.upper() == "YES":
-        appartment_number = input("Enter your appartment number: ")
+        apartment_number = input("Enter your apartment number: ")
     street_number = input("Enter your street number: ")
     street_name = input("Enter your street name: ")
     city = input("Enter your city: ")
@@ -32,10 +32,10 @@ def main():
     # output & call function
     print("")
     print(name.upper())
-    if question.upper() == "N" or question.upper() == "NO":
-        address = strt_address(street_number, street_name)
+    if question.upper() == "Y" or question.upper() == "YES":
+        address = strt_address(street_number, street_name, apartment_number)
     else:
-        address = strt_address(street_number, street_name, appartment_number)
+        address = strt_address(street_number, street_name)
     print(address.upper())
     print("{0} {1}  {2}".format(
           city.upper(), province.upper(), postal_code.upper()))
