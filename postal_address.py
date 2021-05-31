@@ -11,20 +11,20 @@ def strt_address(name, street_number, street_name, city, province,
 
     # process
     if apartment_number is not None:
-        address = "{0}\n{6}-{1} {2}\n{3} {4}  {5}".format(name.upper(),
-                                                          street_number,
-                                                          street_name.upper(),
-                                                          city.upper(),
-                                                          province.upper(),
-                                                          postal_code.upper(),
-                                                          apartment_number)
+        address = ("{0}\n{6}-{1} {2}\n{3} {4}  {5}".format(name,
+                                                           street_number,
+                                                           street_name,
+                                                           city,
+                                                           province,
+                                                           postal_code,
+                                                           apartment_number))
     else:
-        address = "{0}\n{1} {2}\n{3} {4}  {5}".format(name.upper(),
-                                                      street_number,
-                                                      street_name.upper(),
-                                                      city.upper(),
-                                                      province.upper(),
-                                                      postal_code.upper())
+        address = ("{0}\n{1} {2}\n{3} {4}  {5}".format(name,
+                                                       street_number,
+                                                       street_name,
+                                                       city,
+                                                       province,
+                                                       postal_code))
 
     return address
 
@@ -50,9 +50,10 @@ def main():
             address = strt_address(name, street_number, street_name, city,
                                    province, postal_code, apartment_number)
         else:
-            strt_address(name, street_number, street_name, city, province,
-                         postal_code)
-        print("{0}\n\nDone.".format(address))
+            address = strt_address(name, street_number, street_name, city,
+                                   province, postal_code)
+        address_upper = address.upper()
+        print("{0}\n\nDone.".format(address_upper))
     except(Exception):
         print("Invalid Input\nDone.")
 
